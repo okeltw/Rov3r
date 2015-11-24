@@ -1,4 +1,6 @@
 #include <Servo.h>
+#include "Arduino.h"
+#include "rov3rMovement.h"
 
 /*
  * Servo Directions:
@@ -45,8 +47,8 @@ void rov3rMovement::lookRight(){
   head.write(180);
 }
 
-void rov3rMovement::Setup(){
-  leftWheel.assign(10);
-  rightWheel.assign(9);
-  head.assign(8);
+void rov3rMovement::servoSetup(){
+  leftWheel.attach(10);
+  rightWheel.attach(9);
+  head.attach(8);
 }

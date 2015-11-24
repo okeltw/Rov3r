@@ -1,3 +1,6 @@
+#ifndef rov3rMovment_h
+#define rov3rMovment_h
+
 #include <Servo.h>
 
 class rov3rMovement{
@@ -12,12 +15,15 @@ class rov3rMovement{
 		void reverse();
 		void turnLeft();
 		void turnRight();
+    void fullStop();
 		
 		//Head
 		void lookLeft();
 		void lookRight();
-		void lookCenter();
+		void lookForward();
 		
 		//Setup
 		void servoSetup();
-}
+};
+
+#endif

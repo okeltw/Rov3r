@@ -1,9 +1,15 @@
-void setup() {
-  // put your setup code here, to run once:
+#include "pitches.h"
+#include "rov3rSpeaker.h"
 
+rov3rSpeaker Speaker;
+
+void setup() {
+  Speaker = new rov3rSpeaker(7); // Assign new speaker to pin 7
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  play();
+  if(Speaker.getIndex() >= Speaker.getLength()){
+    restart();
+  }
 }

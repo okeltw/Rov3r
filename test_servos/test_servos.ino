@@ -1,14 +1,15 @@
 #include <Servo.h>
+#include <rov3rMovement.h>
 
 Servo leftWheel;
 Servo rightWheel;
 Servo head;
 
+rov3rMovement rov3r;
+
 void setup() {
   // put your setup code here, to run once:
-  leftWheel.attach(10);
-  rightWheel.attach(9);
-  head.attach(8);
+  rov3r.Setup();
 }
 
 void loop() {
@@ -40,48 +41,4 @@ void loop() {
   delay(2000);
 }
 
-/*
- * Servo Directions:
- * Stop: 90
- * Clockwise: 0
- * C.Clockwise: 180
- */
-
-void fullStop(){
-  leftWheel.write(90);
-  rightWheel.write(90);
-  return;
-}
-
-void forward(){
-  leftWheel.write(0);
-  rightWheel.write(180);
-}
-
-void reverse(){
-  leftWheel.write(180);
-  rightWheel.write(0);
-}
-
-void turnLeft(){
-  leftWheel.write(180); //Back        |  ^   <-
-  rightWheel.write(180); //Forward    v  |    
-}
-
-void turnRight(){
-  leftWheel.write(0); //Forward       ^  |   ->
-  rightWheel.write(0); //Back         |  v
-}
-
-void headLeft(){
-  head.write(0);
-}
-
-void headCenter(){
-  head.write(90);
-}
-
-void headRight(){
-  head.write(180);
-}
 

@@ -7,17 +7,17 @@
 class rov3rSpeaker{
 	private:
 		//Melody.  Change to desired tune & associated note duration.
-		int melody[] = {
+		int melody[8] = {
 			NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4
 		};
 	
-		int noteDurations[] = {
+		int noteDurations[8] = {
 			4, 8, 8, 4, 4, 4, 4, 4
 		};
 		
 		
 		int thisNote; //Cursor
-		const int length = sizeof(melody); //Total of notes.  Used for looping.
+		const int length = 8; //Total of notes.  Used for looping.
 		int pin; // Pin Speaker is attached to
 	public:
 		void play();

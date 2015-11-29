@@ -38,5 +38,5 @@ int rov3rSpeaker::getIndex(){
 }
 
 int rov3rSpeaker::getLength(){
-    return length;
+    return len;
 }

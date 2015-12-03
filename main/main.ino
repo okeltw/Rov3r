@@ -1,5 +1,5 @@
-#include "./Includes/rov3rMovement.h"
-#include "./Includes/rov3rSpeaker.h"
+#include "Includes/rov3rMovement.h"
+#include "Includes/rov3rSpeaker.h"
 
 rov3rMovement *movement;
 
@@ -41,6 +41,6 @@ void loop() {
     }
   }//endFWDwall
   else{
-    movement->forward();z
+    movement->forward();
   }
 }//endloop

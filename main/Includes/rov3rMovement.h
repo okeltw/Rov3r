@@ -14,7 +14,7 @@ class rov3rMovement{
 		
 	public:
 		//Initialize
-		rov3rMovement(int);
+		rov3rMovement(int, int, int);
 		
 		//Wheels
 		void forward();

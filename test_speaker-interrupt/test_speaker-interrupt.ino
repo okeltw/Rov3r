@@ -1,7 +1,7 @@
 #include "pitches.h"
 #include "rov3rSpeaker.h"
 
-rov3rSpeaker *Speaker = new rov3rSpeaker(48); // Assign new speaker to pin 7;
+rov3rSpeaker *Speaker = new rov3rSpeaker(49); // Assign new speaker to pin 7;
 
 void setup() {
   

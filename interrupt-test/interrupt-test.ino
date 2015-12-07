@@ -5,7 +5,7 @@
 #include "rov3rSpeaker.h"
 
 Servo myservo;
-rov3rSpeaker *Speaker = new rov3rSpeaker(49);
+rov3rSpeaker *Speaker = new rov3rSpeaker(46);
 
 void setup() {
   // put your setup code here, to run once:

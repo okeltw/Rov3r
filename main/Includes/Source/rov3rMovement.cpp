@@ -1,6 +1,6 @@
 #include <Servo.h>
 #include "Arduino.h"
-#include "rov3rMovement.h"
+#include "./rov3rMovement.h"
 
 /*
  * Servo Directions:
@@ -8,6 +8,15 @@
  * Clockwise: 0
  * C.Clockwise: 180
  */
+
+rov3rMovement::rov3rMovement(int assignL, int assignR, int assignH ){
+  leftPin = assignL;
+  rightPin = assignR;
+  headPin = assignH;
+  leftWheel.attach(leftPin);
+  rightWheel.attach(rightPin);
+  head.attach(head);
+}
 
 void rov3rMovement::fullStop(){
   leftWheel.write(90);

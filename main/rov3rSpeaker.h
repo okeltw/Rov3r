@@ -30,16 +30,20 @@ class rov3rSpeaker{
 		};
 		
 		
-		int thisNote; //Cursor
+		int thisNote = 0; //Cursor
+    int noteDuration = 1000/noteDurations[thisNote];
 		int pin; // Pin Speaker is attached to
 	public:
 		void play();
-		void restart();
+		void reset();
 		rov3rSpeaker(int); // Initialize thisNote, set pin.
 		
 		int currentNote();
 		int getIndex();
 		int getLength();
+    int getDuration();
+
+    long pauseBetweenNotes;
 };
 
 #endif

@@ -23,7 +23,7 @@ class rov3rMovement{
 		void lookForward();
 		
 		//Setup
-		void servoSetup();
+		void servoSetup(int, int, int);
 };
 
 #endif

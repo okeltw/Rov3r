@@ -43,7 +43,7 @@ class rov3rSpeaker{
 		int getLength();
     int getDuration();
 
-    int pauseBetweenNotes;
+    long pauseBetweenNotes;
 };
 
 #endif

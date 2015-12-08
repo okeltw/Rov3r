@@ -6,6 +6,7 @@
 
 Servo myservo;
 rov3rSpeaker *Speaker = new rov3rSpeaker(46);
+long pause;
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,7 +19,7 @@ void setup() {
 
   Timer3.attachInterrupt(blinker);
   
-  myservo.attach(53);
+  myservo.attach(26);
   myservo.write(90);
   interrupts();
 }
@@ -39,13 +40,18 @@ void blinker()
     Speaker->reset();
   }
 
-  Timer3.setPeriod(Speaker->pauseBetweenNotes);
+  if(Speaker->getDuration() == 4)
+    pause = 250000;
+  else
+    pause = 125000;
+
+  Timer3.setPeriod(pause*1.5);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   delay(1000);
-  myservo.write(20);
+  myservo.write(0);
   delay(1000);
-  myservo.write(160);
+  myservo.write(180);
 }

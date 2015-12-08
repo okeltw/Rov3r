@@ -10,11 +10,10 @@
 #include "rov3rEyes.h"
 #include "rov3rMovement.h"
 
-rov3rEyes *sensor = new rov3rEyes(0, 200); //New sensor at pin 0 with a threshold of 200
-rov3rSpeaker *speaker = new rov3rSpeaker(46);
+rov3rEyes *sensor = new rov3rEyes(0, 350); //New sensor at pin 0 with a threshold of 200
+rov3rSpeaker *Speaker = new rov3rSpeaker(46);
 rov3rMovement rov3r;
-
-
+long pause;
 
 void setup() {
   // put your setup code here, to run once: 
@@ -25,16 +24,24 @@ void setup() {
   rov3r.lookForward();
 
   noInterrupts();
-  Timer3.initialize(5000000);
+  Timer3.initialize(500000);
+  //Timer3.pwm(9, 512);  
   Timer3.attachInterrupt(song);
   interrupts();
 }
 
 void song(){
-  speaker->play();
-  //restart logic SHOULD restart
+  Speaker->play();
+  if(Speaker->getIndex() >= Speaker->getLength()){
+    Speaker->reset();
+  }
 
-  Timer3.setPeriod(speaker->pauseBetweenNotes);
+  if(Speaker->getDuration() == 4)
+    pause = 250000;
+  else
+    pause = 125000;
+
+  Timer3.setPeriod(pause*1.5);
 }
 
 void loop() {
@@ -44,29 +51,33 @@ void loop() {
   if(sensor->seeObject()){
     rov3r.fullStop();
     rov3r.lookLeft();
-    delay(500);
+    delay(1000);
+    
     if(sensor->seeObject()){
       rov3r.lookRight();
-      delay(600);
+      delay(1000);
+      
       if(sensor->seeObject()){
-        //reverse
+        rov3r.turnRight();
+        delay(2000); //180 turn
+        rov3r.fullStop();
       }
       else{
         rov3r.turnRight();
-        delay(500);
+        delay(1000); // 90 turn
         rov3r.fullStop();
       }
     }
     else{
       rov3r.turnLeft();
-      delay(500);
+      delay(1000);
       rov3r.fullStop();
     }
   }
   else{
     rov3r.forward();
-  }
-  delay(500); 
+  } 
   rov3r.lookForward();
+  delay(1000);
 }
 
